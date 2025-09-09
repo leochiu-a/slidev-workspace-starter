@@ -63,92 +63,56 @@
           .split("/")
           .filter((segment) => segment.length > 0);
 
-        // Extract potential slidev project name
-        let potentialProject = null;
-        let basePath = "";
-
-        if (pathSegments.length > 0) {
-          potentialProject = pathSegments[0];
-
-          // Handle subdirectory deployments like /my-project/slidev1/
-          if (pathSegments.length > 1) {
-            basePath = pathSegments[0];
-            potentialProject = pathSegments[1];
-          }
-        }
-
-        // Function to check if a slidev project exists
-        async function checkProjectExists(projectName, baseDir = "") {
-          try {
-            const testUrl = baseDir
-              ? `/${baseDir}/${projectName}/index.html`
-              : `/${projectName}/index.html`;
-            const response = await fetch(testUrl, { method: "HEAD" });
-            return response.ok;
-          } catch (error) {
-            return false;
-          }
-        }
-
         // Function to get base URL
         function getBaseUrl() {
           const base = document.querySelector("base");
           if (base) {
             return base.href;
           }
-
-          const origin = window.location.origin;
-          if (pathSegments.length > 1) {
-            return `${origin}/${pathSegments[0]}/`;
-          }
-
-          return `${origin}/`;
+          return `${window.location.origin}/`;
         }
 
-        // Enhanced redirect logic
+        // Conservative redirect logic - only redirect if path is clearly invalid
         async function handleRedirect() {
-          if (!potentialProject) {
+          // If no path segments, redirect to root
+          if (pathSegments.length === 0) {
             window.location.replace(getBaseUrl());
             return;
           }
 
-          // Try simple case first: /projectName/
-          let projectExists = await checkProjectExists(potentialProject);
-
-          if (projectExists) {
-            const newUrl = `/${potentialProject}/`;
-            console.log(`Redirecting to slidev project: ${newUrl}`);
-            window.location.replace(newUrl);
-            return;
-          }
-
-          // Try with base path: /basePath/projectName/
-          if (basePath && pathSegments.length > 1) {
-            projectExists = await checkProjectExists(
-              potentialProject,
-              basePath,
-            );
-
-            if (projectExists) {
-              const newUrl = `/${basePath}/${potentialProject}/`;
-              console.log(`Redirecting to slidev project with base: ${newUrl}`);
-              window.location.replace(newUrl);
+          // For paths like /slidev-starter-1/2, preserve the URL structure
+          // Only redirect if we can confirm the base project doesn't exist
+          const potentialProject = pathSegments[0];
+          
+          try {
+            // Check if the project index exists
+            const testUrl = `/${potentialProject}/index.html`;
+            const response = await fetch(testUrl, { method: "HEAD" });
+            
+            // If project exists, try to navigate to the original URL first
+            if (response.ok) {
+              // Don't redirect - let the Slidev app handle the routing
+              console.log(`Project ${potentialProject} exists, preserving URL: ${currentPath}`);
+              // Try to load the original URL by refreshing
+              window.location.reload();
               return;
             }
+          } catch (error) {
+            console.log("Error checking project existence:", error);
           }
 
-          // No valid project found, redirect to main app
-          const baseUrl = getBaseUrl();
-          console.log(
-            `No valid project found, redirecting to main app: ${baseUrl}`,
-          );
-          window.location.replace(baseUrl);
+          // Only redirect to root if we're sure the project doesn't exist
+          console.log(`No valid project found for ${potentialProject}, redirecting to root`);
+          window.location.replace(getBaseUrl());
         }
 
         // Add timeout fallback
         const timeoutId = setTimeout(() => {
-          console.log("Redirect timeout, falling back to base URL");
-          window.location.replace(getBaseUrl());
+          console.log("Redirect timeout, preserving current URL");
+          // Don't redirect on timeout, let the URL stay as-is
+          document.querySelector('.message').textContent = 'Page not found';
+          document.querySelector('.redirect-info').textContent = 'The requested page could not be found';
+          document.querySelector('.spinner').style.display = 'none';
         }, 3000);
 
         // Execute redirect logic
@@ -156,7 +120,10 @@
           .catch((error) => {
             console.error("Redirect error:", error);
             clearTimeout(timeoutId);
-            window.location.replace(getBaseUrl());
+            // On error, don't force redirect - preserve URL
+            document.querySelector('.message').textContent = 'Page not found';
+            document.querySelector('.redirect-info').textContent = 'The requested page could not be found';
+            document.querySelector('.spinner').style.display = 'none';
           })
           .finally(() => {
             clearTimeout(timeoutId);
