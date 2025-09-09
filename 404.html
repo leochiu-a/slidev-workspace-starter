@@ -89,12 +89,10 @@
             const testUrl = `/${potentialProject}/index.html`;
             const response = await fetch(testUrl, { method: "HEAD" });
             
-            // If project exists, try to navigate to the original URL first
+            // If project exists, redirect to the project's index
             if (response.ok) {
-              // Don't redirect - let the Slidev app handle the routing
-              console.log(`Project ${potentialProject} exists, preserving URL: ${currentPath}`);
-              // Try to load the original URL by refreshing
-              window.location.reload();
+              console.log(`Project ${potentialProject} exists, redirecting to project index`);
+              window.location.replace(`/${potentialProject}/`);
               return;
             }
           } catch (error) {
