@@ -24,8 +24,8 @@ importers:
   .:
     dependencies:
       slidev-workspace:
-        specifier: ^0.6.2
-        version: 0.6.2(@types/node@22.18.13)(esbuild@0.25.12)(jiti@2.6.1)(typescript@5.9.3)
+        specifier: ^0.6.3
+        version: 0.6.3(@types/node@22.18.13)(esbuild@0.25.12)(jiti@2.6.1)(typescript@5.9.3)
     devDependencies:
       playwright-chromium:
         specifier: ^1.56.1
@@ -2629,8 +2629,8 @@ packages:
   sisteransi@1.0.5:
     resolution: {integrity: sha512-bLGGlR1QxBcynn2d5YmDX4MGjlZvy2MRBDRNHLJ8VI6l6+9FUiyTFNJ0IveOSP0bcXgVDPRcfGqA0pjaqUpfVg==}
 
-  slidev-workspace@0.6.2:
-    resolution: {integrity: sha512-dytcjSUXwh8fPwG/UWK2nlWJiudHN8zxb/ryouenlPZpRTEOoxcyBtvvzlPIhlKe7k9fjG3uK+uXwX4la8zp3A==}
+  slidev-workspace@0.6.3:
+    resolution: {integrity: sha512-4FsFGHF9i6XBIw6cVNQ0V4Iy3+TgCWSeyjPZUsbjlMNhdmdFfLATOkbpz2ru/jwiSWmz9k4gEQDy1cZn8RiQ/g==}
     hasBin: true
 
   source-map-js@1.2.1:
@@ -6078,7 +6078,7 @@ snapshots:
 
   sisteransi@1.0.5: {}
 
-  slidev-workspace@0.6.2(@types/node@22.18.13)(esbuild@0.25.12)(jiti@2.6.1)(typescript@5.9.3):
+  slidev-workspace@0.6.3(@types/node@22.18.13)(esbuild@0.25.12)(jiti@2.6.1)(typescript@5.9.3):
     dependencies:
       '@tailwindcss/vite': 4.1.16(rolldown-vite@7.2.2(@types/node@22.18.13)(esbuild@0.25.12)(jiti@2.6.1)(yaml@2.8.1))
       '@vitejs/plugin-vue': 6.0.1(rolldown-vite@7.2.2(@types/node@22.18.13)(esbuild@0.25.12)(jiti@2.6.1)(yaml@2.8.1))(vue@3.5.22(typescript@5.9.3))

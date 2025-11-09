@@ -9,7 +9,7 @@
     "build": "slidev-workspace build"
   },
   "dependencies": {
-    "slidev-workspace": "^0.6.2"
+    "slidev-workspace": "^0.6.3"
   },
   "keywords": [],
   "author": "",
