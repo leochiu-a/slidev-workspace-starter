@@ -1,7 +1,3 @@
-baseUrl: /
-outputDir: ./dist
-
 hero:
   title: Slidev Workspace Starter
   description: A starter for Slidev Workspace
-
