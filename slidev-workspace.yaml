@@ -1,4 +1,4 @@
-baseUrl: /slidev-workspace-starter
+baseUrl: /
 outputDir: ./dist
 
 hero:
