@@ -1,17 +1,17 @@
 ---
-# You can also start simply with 'default'
-theme: seriph
+# try also 'seriph' to start with serif fonts
+theme: default
 # random image from a curated Unsplash collection by Anthony
 # like them? see https://unsplash.com/collections/94734566/slidev
 background: /background.webp
 # some information about your slides (markdown enabled)
-title: Slidev Start 1
+title: Slidev Starter 1
 info: |
   ## Slidev Starter Template
   Presentation slides for developers.
 
   Learn more at [Sli.dev](https://sli.dev)
-# apply unocss classes to the current slide
+# apply UnoCSS classes to the current slide
 class: text-center
 # https://sli.dev/features/drawing
 drawings:
@@ -20,6 +20,8 @@ drawings:
 transition: slide-left
 # enable MDC Syntax: https://sli.dev/features/mdc
 mdc: true
+# duration of the presentation
+duration: 35min
 author: Leo Chiu
 # open graph
 seoMeta:
@@ -101,12 +103,12 @@ Hover on the bottom-left corner to see the navigation's controls panel, [learn m
 
 ## Keyboard Shortcuts
 
-|                                                     |                             |
-| --------------------------------------------------- | --------------------------- |
-| <kbd>right</kbd> / <kbd>space</kbd>                 | next animation or slide     |
-| <kbd>left</kbd>  / <kbd>shift</kbd><kbd>space</kbd> | previous animation or slide |
-| <kbd>up</kbd>                                       | previous slide              |
-| <kbd>down</kbd>                                     | next slide                  |
+|                                                    |                             |
+| -------------------------------------------------- | --------------------------- |
+| <kbd>right</kbd> / <kbd>space</kbd>                | next animation or slide     |
+| <kbd>left</kbd> / <kbd>shift</kbd><kbd>space</kbd> | previous animation or slide |
+| <kbd>up</kbd>                                      | previous slide              |
+| <kbd>down</kbd>                                    | next slide                  |
 
 <!-- https://sli.dev/guide/animations.html#click-animation -->
 <img
@@ -455,9 +457,9 @@ const final = {
 
 ---
 
-# LaTeX
+# $\LaTeX$
 
-LaTeX is supported out-of-box. Powered by [KaTeX](https://katex.org/).
+$\LaTeX$ is supported out-of-box. Powered by [$\KaTeX$](https://katex.org/).
 
 <div h-3 />
 
