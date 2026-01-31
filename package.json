@@ -8,7 +8,7 @@
     "build": "slidev-workspace build"
   },
   "dependencies": {
-    "slidev-workspace": "^0.9.0"
+    "slidev-workspace": "^0.9.1"
   },
   "keywords": [
     "slidev",
