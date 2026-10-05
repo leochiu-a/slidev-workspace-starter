@@ -7,3 +7,13 @@ catalog:
   "@slidev/theme-default": latest
   "@slidev/theme-seriph": latest
   slidev-theme-dracula: ^0.2.0
+
+# Our own package is bumped right after each release, so skip the release-age wait for it
+minimumReleaseAgeExclude:
+  - slidev-workspace
+
+# pnpm 11 requires an explicit decision; these were already skipped under pnpm 10
+allowBuilds:
+  esbuild: false
+  playwright-chromium: false
+  vue-demi: false
