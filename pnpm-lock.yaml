@@ -24,8 +24,8 @@ importers:
   .:
     dependencies:
       slidev-workspace:
-        specifier: ^0.9.3
-        version: 0.9.3(@types/node@22.18.13)(jiti@2.6.1)(typescript@5.9.3)
+        specifier: ^0.10.0
+        version: 0.10.0(@types/node@22.18.13)(jiti@2.6.1)(typescript@5.9.3)
     devDependencies:
       playwright-chromium:
         specifier: ^1.56.1
@@ -1036,6 +1036,7 @@ packages:
 
   '@ungap/structured-clone@1.3.0':
     resolution: {integrity: sha512-WmoN8qaIAo7WTYWbAZuG8PYEhn5fkz7dZrqTBZ7dtt//lL2Gwms1IcnQ5yHqjDfX8Ft5j4YzDM23f87zBfDe9g==}
+    deprecated: Potential CWE-502 - Update to 1.3.1 or higher
 
   '@unhead/vue@2.0.19':
     resolution: {integrity: sha512-7BYjHfOaoZ9+ARJkT10Q2TjnTUqDXmMpfakIAsD/hXiuff1oqWg1xeXT5+MomhNcC15HbiABpbbBmITLSHxdKg==}
@@ -2163,6 +2164,7 @@ packages:
 
   lucide-vue-next@0.525.0:
     resolution: {integrity: sha512-Xf8+x8B2DrnGDV/rxylS+KBp2FIe6ljwDn2JsGTZZvXIfhmm/q+nv8RuGO1OyoMjOVkkz7CqtUqJfwtFPRbB2w==}
+    deprecated: Package deprecated. Please use @lucide/vue instead.
     peerDependencies:
       vue: '>=3.0.1'
 
@@ -2567,6 +2569,7 @@ packages:
   rolldown-vite@7.3.1:
     resolution: {integrity: sha512-LYzdNAjRHhF2yA4JUQm/QyARyi216N2rpJ0lJZb8E9FU2y5v6Vk+xq/U4XBOxMefpWixT5H3TslmAHm1rqIq2w==}
     engines: {node: ^20.19.0 || >=22.12.0}
+    deprecated: Use this package to migrate from Vite 7 to Vite 8. For the most recent updates, migrate to Vite 8 once you're ready.
     hasBin: true
     peerDependencies:
       '@types/node': ^20.19.0 || >=22.12.0
@@ -2682,8 +2685,8 @@ packages:
   sisteransi@1.0.5:
     resolution: {integrity: sha512-bLGGlR1QxBcynn2d5YmDX4MGjlZvy2MRBDRNHLJ8VI6l6+9FUiyTFNJ0IveOSP0bcXgVDPRcfGqA0pjaqUpfVg==}
 
-  slidev-workspace@0.9.3:
-    resolution: {integrity: sha512-QdK2COOxLtukUNtJj8VUUpodindVsW19jKZiFm7acGAGoU74u/X1H0Mi5w7gKXNVPTZsaCmPeQ8Wmdgov3Mr3A==}
+  slidev-workspace@0.10.0:
+    resolution: {integrity: sha512-i66ffSQET+LgmwbFg1qlLX0CptxqcslVGAHLcY3k7z8Rsbpbma8cTQVSS6WJ8lAyoNthvB+IiRbJMZ5WjOw0FQ==}
     hasBin: true
 
   source-map-js@1.2.1:
@@ -6231,7 +6234,7 @@ snapshots:
 
   sisteransi@1.0.5: {}
 
-  slidev-workspace@0.9.3(@types/node@22.18.13)(jiti@2.6.1)(typescript@5.9.3):
+  slidev-workspace@0.10.0(@types/node@22.18.13)(jiti@2.6.1)(typescript@5.9.3):
     dependencies:
       '@tailwindcss/vite': 4.1.16(rolldown-vite@7.3.1(@types/node@22.18.13)(jiti@2.6.1)(yaml@2.8.2))
       '@vitejs/plugin-vue': 6.0.2(rolldown-vite@7.3.1(@types/node@22.18.13)(jiti@2.6.1)(yaml@2.8.2))(vue@3.5.25(typescript@5.9.3))
